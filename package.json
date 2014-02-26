@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/thorsten/chat-js/issues"
   },
-  "homepage": "https://github.com/thorsten/chat-js"
+  "homepage": "https://github.com/thorsten/chat-js",
+  "dependencies": {
+    "express": "~3.4.8"
+  }
 }
