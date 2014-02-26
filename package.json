@@ -1,9 +1,10 @@
 {
-  "name": "chat-js",
+  "name": "chat.js",
   "version": "1.0.0",
   "dependencies": {
     "express": "~3.4.8",
-    "express-hbs": "~0.7.9"
+    "express-hbs": "~0.7.9",
+    "socket.io": "~0.9.x"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
@@ -15,6 +16,11 @@
     "grunt-contrib-cssmin": "~0.8.0",
     "matchdep": "~0.3.0",
     "grunt-contrib-less": "~0.8.0",
-    "grunt-contrib-copy": "~0.5.0"
+    "grunt-contrib-copy": "~0.5.0",
+    "load-grunt-tasks": "~0.1.0"
+  },
+    "repository": {
+    "type": "git",
+    "url": "git://github.com/thorsten/chat-js.git"
   }
 }
