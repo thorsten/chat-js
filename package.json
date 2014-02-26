@@ -14,6 +14,6 @@
     "grunt-node-inspector": "~0.1.2",
     "grunt-contrib-cssmin": "~0.8.0",
     "matchdep": "~0.3.0",
-    "grunt-contrib-less": "~0.9.0"
+    "grunt-contrib-less": "~0.8.0"
   }
 }
