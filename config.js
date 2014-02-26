@@ -1,26 +1,17 @@
 var config = {
   development: {
     server: {
-      port: 3000,
-    },
-    database: {
-      url: 'mongodb://localhost/chat-js_dev'
+      port: 3000
     }
   },
   testing: {
     server: {
       port: 3001
-    },
-    database: {
-      url: 'mongodb://localhost/chat-js_test'
     }
   },
   production: {
     server: {
       port: 8080
-    },
-    database: {
-      url: 'mongodb://localhost/chat-js'
     }
   }
 };

@@ -4,24 +4,19 @@
 
 var express  = require('express'),
     path     = require('path'),
-    mongoose = require('mongoose'),
     hbs      = require('express-hbs'),
     config   = require('./config'),
     routes   = require('./routes');
-
-
-mongoose.connect(config.database.url);
-mongoose.connection.on('error', function () {
-  console.log('mongodb connection error');
-});
 
 var app = express();
 
 app.locals({
   dev: app.get('env') === 'development'
 });
+
 /**
  * Express configuration.
+ *
  */
 app.set('port', config.server.port);
 app.engine('hbs', hbs.express3());
