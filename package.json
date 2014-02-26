@@ -1,0 +1,19 @@
+{
+  "name": "chat-js",
+  "version": "0.0.1",
+  "description": "node.js based demo chat",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thorsten/chat-js.git"
+  },
+  "keywords": [
+    "chat",
+    "node",
+    "javascript"
+  ],
+  "bugs": {
+    "url": "https://github.com/thorsten/chat-js/issues"
+  },
+  "homepage": "https://github.com/thorsten/chat-js"
+}
