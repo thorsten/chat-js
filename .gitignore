@@ -17,5 +17,6 @@ node_modules
 .DS_Store
 .idea
 
-public/vendor
 public/css
+public/js
+public/vendor

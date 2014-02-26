@@ -1,5 +1,11 @@
 module.exports = function (grunt) {
   var config = {
+    copy: {
+      main: {
+        src: 'public/vendor/jquery/dist/jquery.min.js',
+        dest: 'public/js/jquery.min.js'
+      }
+    },
     jshint: {
       options: {
         ignores: ['node_modules/**', 'public/vendor/**', '**/*.min.js'],
@@ -93,5 +99,5 @@ module.exports = function (grunt) {
 
   // Load the tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-  grunt.registerTask('default', ['jshint', 'less', 'cssmin', 'concurrent']);
+  grunt.registerTask('default', ['copy', 'jshint', 'less', 'cssmin', 'concurrent']);
 };
