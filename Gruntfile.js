@@ -10,22 +10,33 @@ module.exports = function (grunt) {
       client: 'public/**/*.js'
     },
     less: {
-      files: [{
-        expand: true,
-        cwd: 'public/less',
-        src: '**/*.less',
-        dest: 'public/css',
-        ext: '.css'
-      }]
+      development: {
+        options: {
+          paths: ['public/css']
+        },
+        files: {
+          'public/css/styles.css': 'public/less/styles.less'
+        }
+      },
+      production: {
+        options: {
+          paths: ['public/css'],
+          cleancss: true
+        },
+        files: {
+          'public/css/styles.css': 'public/less/styles.less'
+        }
+      }
     },
     cssmin: {
-      files: [{
-        expand: true,
-        cwd: 'public/css',
-        src: '**/*.css',
-        dest: 'public/css',
-        ext: '.min.css'
-      }]
+      addBanner: {
+        options: {
+          banner: '/* (c) 2014 Thorsten Rinne & Sebastian Springer */'
+        },
+        files: {
+          'public/css/styles.min.css': ['public/css/styles.css']
+        }
+      }
     },
     'node-inspector': {
       options: {
