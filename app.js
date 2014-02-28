@@ -92,11 +92,13 @@ io.sockets.on('connection', function (socket) {
         socket.broadcast.emit('msg', msg);
     });
 
-    socket.on('join', function (message) {
-        var data = JSON.parse(message),
+    socket.on('join', function(input) {
+        var data = JSON.parse(input),
             name = getName(connections, socket);
 
-        connections[data.name] = {'socket': socket, 'position': data.position};
+        connections[data.name] = {"socket": socket, "position": data.position};
+
+        var message = {};
 
         var names = Object.keys(connections);
 
