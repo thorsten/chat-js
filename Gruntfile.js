@@ -18,7 +18,7 @@ module.exports = function (grunt) {
     uglify: {
       options: {
         banner: '<%= banner %>'
-      }
+      },
       dist: {
         files: {
           'public/js/app.min.js': ['src/*.js']
@@ -109,5 +109,5 @@ module.exports = function (grunt) {
 
   // Load the tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-  grunt.registerTask('default', ['copy', 'less', 'cssmin', 'concurrent']);
+  grunt.registerTask('default', ['copy', 'less', 'cssmin', 'uglify', 'concurrent']);
 };
