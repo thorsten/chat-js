@@ -5,6 +5,6 @@
 
 exports.index = function (req, res) {
   res.render('index', {
-    title: 'chat-js'
+    title: 'Realtime Chat'
   });
 };
