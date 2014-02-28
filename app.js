@@ -93,8 +93,7 @@ io.sockets.on('connection', function (socket) {
     });
 
     socket.on('join', function (input) {
-        var data = JSON.parse(input),
-            name = getName(connections, socket);
+        var data = JSON.parse(input);
 
         connections[data.name] = {'socket': socket, 'position': data.position};
 
