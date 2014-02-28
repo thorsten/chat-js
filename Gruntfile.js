@@ -15,6 +15,16 @@ module.exports = function (grunt) {
       server: ['controllers/**/*.js', 'models/**/*.js', 'routes/**/*.js', 'app.js', 'config.js'],
       client: 'public/**/*.js'
     },
+    uglify: {
+      options: {
+        banner: '<%= banner %>'
+      }
+      dist: {
+        files: {
+          'public/js/app.min.js': ['src/*.js']
+        }
+      }
+    },
     less: {
       development: {
         options: {
