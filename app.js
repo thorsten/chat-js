@@ -11,7 +11,7 @@ var express  = require('express'),
 var app = express();
 
 app.locals({
-  dev: app.get('env') === 'development'
+    dev: app.get('env') === 'development'
 });
 
 /**
@@ -33,14 +33,14 @@ app.use(express.session({ secret: 'your secret code' }));
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (req, res) {
-  res.status(404).render('404', {title: 'Not Found :('});
+    res.status(404).render('404', {title: 'Not Found :('});
 });
 app.use(express.errorHandler());
 
 routes(app);
 
 app.listen(app.get('port'), function () {
-  console.log('Express server listening on port ' + app.get('port'));
+    console.log('Express server listening on port ' + app.get('port'));
 });
 
 app.get('/logout', function (req, res) {
@@ -66,8 +66,8 @@ var io = require('socket.io').listen(server);
 
 var connections = {};
 
-function getName (connections, socket) {
-    "use strict";
+function getName(connections, socket) {
+    'use strict';
 
     var name, key;
 
@@ -82,7 +82,7 @@ function getName (connections, socket) {
 
 io.sockets.on('connection', function (socket) {
 
-    socket.on('msg', function(message) {
+    socket.on('msg', function (message) {
         var data = JSON.parse(message),
             name = getName(connections, socket);
 
@@ -92,13 +92,10 @@ io.sockets.on('connection', function (socket) {
         socket.broadcast.emit('msg', msg);
     });
 
-    socket.on('join', function(message) {
-        var data = JSON.parse(message),
-            name = getName(connections, socket);
+    socket.on('join', function (message) {
+        var data = JSON.parse(message);
 
-        connections[data.name] = {"socket": socket, "position": data.position};
-
-        var message = {};
+        connections[data.name] = {'socket': socket, 'position': data.position};
 
         var names = Object.keys(connections);
 
