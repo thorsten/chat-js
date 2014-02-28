@@ -92,11 +92,11 @@ io.sockets.on('connection', function (socket) {
         socket.broadcast.emit('msg', msg);
     });
 
-    socket.on('join', function(input) {
+    socket.on('join', function (input) {
         var data = JSON.parse(input),
             name = getName(connections, socket);
 
-        connections[data.name] = {"socket": socket, "position": data.position};
+        connections[data.name] = {'socket': socket, 'position': data.position};
 
         var message = {};
 
@@ -113,5 +113,3 @@ io.sockets.on('connection', function (socket) {
     });
 
 });
-
-

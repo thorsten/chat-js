@@ -57,26 +57,26 @@ socket.on('join', function (msg) {
     }
   });
 
-/*socket.on('connect', function () {
- var geolocation = navigator.geolocation;
+socket.on('connect', function () {
+    var geolocation = navigator.geolocation;
 
- geolocation.getCurrentPosition(function (pos) {
- var lat = pos.coords.latitude;
- var long = pos.coords.longitude;
+    geolocation.getCurrentPosition(function (pos) {
+        var lat = pos.coords.latitude;
+        var long = pos.coords.longitude;
 
- var data = {
- name: userName,
- position: {
- "lat": lat,
- "long": long
- }
- }
+        var data = {
+            name: userName,
+            position: {
+                "lat": lat,
+                "long": long
+            }
+        }
 
- var data = JSON.stringify(data);
- getHistory();
- socket.emit("join", data);
- });
- });*/
+        var data = JSON.stringify(data);
+        getHistory();
+        socket.emit("join", data);
+    });
+});
 
 socket.on('connect', function () {
     'use strict';

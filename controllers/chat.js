@@ -1,5 +1,6 @@
 module.exports = {
     checkAuth: function (req, res, next) {
+        'use strict';
         if (!req.session.user) {
             res.redirect('/');
         } else {
@@ -7,6 +8,7 @@ module.exports = {
         }
     },
     index: function (req, res) {
+        'use strict';
         if (req.session.user) {
             res.redirect('/chat');
         }
@@ -14,6 +16,7 @@ module.exports = {
         res.render('login');
     },
     login: function (req, res) {
+        'use strict';
         var user = req.body.username,
             pw = req.body.password;
 
@@ -26,6 +29,7 @@ module.exports = {
         res.redirect('/chat');
     },
     chat: function (req, res) {
+        'use strict';
         res.render('chat', {user: req.session.user});
     }
 };
