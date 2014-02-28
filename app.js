@@ -43,6 +43,8 @@ app.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
 
+var connections = {};
+
 app.get('/logout', function (req, res) {
     var names = Object.keys(connections);
     names.splice(names.indexOf(req.session.user), 1);
@@ -63,8 +65,6 @@ var http = require('http');
 var server = http.createServer(app);
 server.listen(8080);
 var io = require('socket.io').listen(server);
-
-var connections = {};
 
 function getName(connections, socket) {
     'use strict';
