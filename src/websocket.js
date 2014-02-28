@@ -45,36 +45,33 @@ socket.on('join', function (msg) {
     names = Object.keys(data.users);
 
     myPos = data.users[userName];
-    myPos = {'lat': 48.3548753, 'long': 11.7920352};
 
     for (i = 0; i < names.length; i += 1) {
 
-      pos = data.users[names[i]];
-      distance = getDistance(pos.lat, pos.long, myPos.lat, myPos.long);
+        pos      = data.users[names[i]];
+        distance = getDistance(pos.lat, pos.long, myPos.lat, myPos.long);
 
-      user = $('<div>' + names[i] + ' (' + distance + ')</div>');
-      $('#users').append(user);
+        user = $('<div>' + names[i] + ' (' + distance + ')</div>');
+        $('#users').append(user);
     }
   });
 
 socket.on('connect', function () {
+    'use strict';
+
     var geolocation = navigator.geolocation;
-    var online      = navigator.onLine;
 
-    if (online) {
+    if (navigator.onLine) {
         geolocation.getCurrentPosition(function (pos) {
-            var lat = pos.coords.latitude;
-            var long = pos.coords.longitude;
-
             var data = {
                 name: userName,
                 position: {
-                    "lat": lat,
-                    "long": long
+                    'lat': pos.coords.latitude,
+                    'long': pos.coords.longitude
                 }
             }
 
-            var data = JSON.stringify(data);
+            data = JSON.stringify(data);
             getHistory();
             socket.emit("join", data);
         });

@@ -4,18 +4,16 @@ var toRad = function (value) {
     return value * Math.PI / 180;
   };
 
-var getDistance = function (b1, l1, b2, l2) {
+var getDistance = function (lat1, lon1, lat2, lon2) {
     'use strict';
 
-    var e, result;
+    var R = 6371; // km
+    var dLat = (lat2 - lat1).toRad();
+    var dLon = (lon2 - lon1).toRad();
+    var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-    b1 = b1 / 180 * Math.PI;
-    l1 = l1 / 180 * Math.PI;
-    b2 = b2 / 180 * Math.PI;
-    l2 = l2 / 180 * Math.PI;
-
-    e = Math.atan(Math.sin(b1) * Math.sin(b2) + Math.cos(b1) * Math.cos(b2) * Math.cos(l2 - l1));
-    result = e * 6378.137;
-
-    return result;
+    return R * c;
   };
