@@ -1,21 +1,42 @@
 {{!< layout}}
 
-    <div id="head"></div>
-    <a class="btn btn-primary" href="/logout">Logout</a>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Realtime Chat</a>
+            </div>
 
-    <div id="msgs"></div>
-    <div id="users"></div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <form id="chatForm">
-        <label for="msg">{{user}}:&nbsp;</label>
-        <input id="msg" type="text">
-        <button id="sendBtn" class="btn btn-primary">Send</button>
-    </form>
+    <div class="row">
+        <div class="col-sm-9 messages" id="msgs"></div>
+        <div class="col-sm-3" id="users"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form id="chatForm">
+                <label for="msg">{{user}}:&nbsp;</label>
+                <input id="msg" type="text">
+                <button id="sendBtn" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+    </div>
 
     <script src="http://localhost:8080/socket.io/socket.io.js"></script>
-
     <script src="/js/app.min.js"></script>
-
     <script>
         var userName = '{{user}}';
     </script>
