@@ -1,0 +1,21 @@
+{{!< layout}}
+
+    <div id="head"></div>
+    <a class="btn btn-primary" href="/logout">Logout</a>
+
+    <div id="msgs"></div>
+    <div id="users"></div>
+
+    <form id="chatForm">
+        <label for="msg">{{user}}:&nbsp;</label>
+        <input id="msg" type="text">
+        <button id="sendBtn" class="btn btn-primary">Send</button>
+    </form>
+
+    <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+
+    <script src="/js/app.min.js"></script>
+
+    <script>
+        var userName = '{{user}}';
+    </script>
