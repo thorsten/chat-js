@@ -13,7 +13,7 @@ module.exports = function (grunt) {
             },
             gruntfile: 'Gruntfile.js',
             server: ['controllers/**/*.js', 'models/**/*.js', 'routes/**/*.js', 'app.js', 'config.js'],
-            client: 'public/**/*.js'
+            client: 'src/*.js'
         },
         uglify: {
             options: {
@@ -85,7 +85,7 @@ module.exports = function (grunt) {
                 tasks: 'jshint:gruntfile'
             },
             scripts: {
-		files: 'src/*.js',
+                files: 'src/*.js',
                 tasks: 'jshint:client'
             },
             server: {
