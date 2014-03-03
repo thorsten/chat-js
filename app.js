@@ -7,7 +7,7 @@ var express  = require('express'),
     hbs      = require('express-hbs'),
     config   = require('./config'),
     routes   = require('./routes'),
-    websockets = require('./websocket');
+    websockets = require('./models/websocket');
 
 var app = express();
 
@@ -45,10 +45,6 @@ routes(app, connections);
 app.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
-
-
-
-
 
 var http = require('http');
 var server = http.createServer(app);
