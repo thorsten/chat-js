@@ -38,29 +38,17 @@ app.use(function (req, res) {
 });
 app.use(express.errorHandler());
 
-routes(app);
+var connections = {};
+
+routes(app, connections);
 
 app.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
 
-var connections = {};
 
-app.get('/logout', function (req, res) {
-    var names = Object.keys(connections);
-    names.splice(names.indexOf(req.session.user), 1);
 
-    var msg = '{"names": ["' + names.join('","') + '"]}';
 
-    if (connections[req.session.user] && connections[req.session.user].socket) {
-        connections[req.session.user].socket.broadcast.emit('join', msg);
-        connections[req.session.user].socket.disconnect();
-    }
-    delete connections[req.session.user];
-    delete req.session.user;
-
-    res.redirect('/');
-});
 
 var http = require('http');
 var server = http.createServer(app);
