@@ -85,7 +85,7 @@ module.exports = function (grunt) {
                 tasks: 'jshint:gruntfile'
             },
             scripts: {
-                files: 'public/js/**/*.js',
+		files: 'src/*.js',
                 tasks: 'jshint:client'
             },
             server: {
