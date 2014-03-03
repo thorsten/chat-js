@@ -69,7 +69,7 @@ socket.on('connect', function () {
                     'lat': pos.coords.latitude,
                     'long': pos.coords.longitude
                 }
-            }
+            };
 
             data = JSON.stringify(data);
             getHistory();
@@ -78,18 +78,3 @@ socket.on('connect', function () {
     }
 });
 
-socket.on('connect', function () {
-    'use strict';
-
-    var data = {
-        name: userName,
-        position: {
-            'lat': 52.525191,
-            'long': 13.413883
-          }
-        };
-
-    data = JSON.stringify(data);
-    getHistory();
-    socket.emit('join', data);
-  });
