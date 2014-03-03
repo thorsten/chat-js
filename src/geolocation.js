@@ -2,7 +2,7 @@
 var toRad = function (value) {
     'use strict';
     return value * Math.PI / 180;
-  };
+};
 
 var getDistance = function (lat1, lon1, lat2, lon2) {
     'use strict';
@@ -16,4 +16,4 @@ var getDistance = function (lat1, lon1, lat2, lon2) {
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
     return R * c;
-  };
+};

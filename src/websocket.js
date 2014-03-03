@@ -11,7 +11,7 @@ $('#sendBtn').on('click', function (e) {
 
     socket.emit('msg', '{"msg": "' + msg + '"}');
     $('#msg').val('');
-  });
+});
 
 socket.on('msg', function (msg) {
     'use strict';
@@ -27,12 +27,12 @@ socket.on('msg', function (msg) {
 
     data = JSON.parse(msg);
 
-    msg = '<div>' + time + ' - <b>' + data.name + '</b>: ' + data.msg + '</div>';
+    msg = '<div class="usermessage">' + time + ' - <b>' + data.name + '</b>: ' + data.msg + '</div>';
 
     saveHistory(msg);
 
     $('#msgs').append($(msg));
-  });
+});
 
 socket.on('join', function (msg) {
     'use strict';
@@ -51,10 +51,10 @@ socket.on('join', function (msg) {
         pos      = data.users[names[i]];
         distance = getDistance(pos.lat, pos.long, myPos.lat, myPos.long);
 
-	user = $('<div>' + names[i] + ' (' + Math.round(distance * 100) / 100 + ' km)</div>');
+        user = $('<div class="username">' + names[i] + ' (' + Math.round(distance * 1000) / 1000 + ' km)</div>');
         $('#users').append(user);
     }
-  });
+});
 
 socket.on('connect', function () {
     'use strict';
@@ -73,7 +73,7 @@ socket.on('connect', function () {
 
             data = JSON.stringify(data);
             getHistory();
-            socket.emit("join", data);
+            socket.emit('join', data);
         });
     }
 });
