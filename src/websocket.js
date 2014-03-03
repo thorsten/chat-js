@@ -51,7 +51,7 @@ socket.on('join', function (msg) {
         pos      = data.users[names[i]];
         distance = getDistance(pos.lat, pos.long, myPos.lat, myPos.long);
 
-        user = $('<div>' + names[i] + ' (' + distance + ')</div>');
+	user = $('<div>' + names[i] + ' (' + Math.round(distance * 100) / 100 + ' km)</div>');
         $('#users').append(user);
     }
   });
