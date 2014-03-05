@@ -1,6 +1,6 @@
 /*global $, io, saveHistory, getHistory, getDistance, userName */
 
-var socket = io.connect('http://localhost:8080');
+var socket = io.connect('http://localhost:3000');
 
 $('#sendBtn').on('click', function (e) {
     'use strict';

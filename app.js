@@ -42,13 +42,9 @@ var connections = {};
 
 routes(app, connections);
 
-app.listen(app.get('port'), function () {
-    console.log('Express server listening on port ' + app.get('port'));
-});
-
 var http = require('http');
 var server = http.createServer(app);
-server.listen(8080);
+server.listen(app.get('port'));
 
 websockets(server, connections);
 
