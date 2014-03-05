@@ -17,6 +17,7 @@ Install node.js (0.10.x or 0.11.x) first.
 ## Installation
 
 ```shell
+$ npm install grunt-cli bower -g
 $ npm install
 $ bower install
 ```
