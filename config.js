@@ -1,12 +1,12 @@
 var config = {
     development: {
         server: {
-            port: 3000
+            port: 8080
         }
     },
     testing: {
         server: {
-            port: 3001
+            port: 8080
         }
     },
     production: {
